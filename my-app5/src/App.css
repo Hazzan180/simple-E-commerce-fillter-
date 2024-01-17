@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 0.2fr 3fr;
+  grid-template-areas:
+    'sidebar header header header'
+    'sidebar main main main';
+  height: 100vh;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* navigation */
+.navigation{
+  grid-area: header;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.navigation input{
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav-icons{
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* navigation */
+
+/* sidebar */
+.sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  background-color: #263043;
+  overflow-y: auto;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  cursor: pointer;
+}
+
+.sidebar-item{
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-item h3{
+  margin: 15px 0px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sidebar-list, .button-list{
+  display: flex;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.sidebar-list span{
+  color: #fff;
+}
+
+/* sidebar */
+
+
+.product-Container{
+  grid-area: main;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.product-Container h2{
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.product-Container button{
+  border: 0;
+  background-color: gainsboro;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card{
+  width: 300px;
+  border:  1px solid gainsboro;
+  padding:10px;
+  margin: 20px 0px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h4{
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.row1{
+  display: flex;
+  gap: 20px;
+}
+
+.icon{
+  color: gold;
+  padding-bottom: 10px;
+}
+
+.row2{
+  display: flex;
+  justify-content: space-between;
+}
+
+.row2 .line{
+  text-decoration: line-through;
+}
+
+.sidebar-responsive {
+  display: inline !important;
+  position: absolute;
+  /*
+    we want the z-index of the sidebar higher so that
+    the charts are not showing over the sidebar 
+    on small screens
+  */
+  z-index: 12 !important;
+  background-color: #263043;
+  height: 100%;
+}
+
+.close, .open{
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.close{
+  margin-top: 20px;
+  color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline;
+  }
+
+  .sidebar-title > span {
+    display: inline;
+  }
+
+  .button-list{
+    flex-direction: column;
+  }
+
+  .close, .open{
+    display: inline;
+  }
+}
